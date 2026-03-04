@@ -28,13 +28,9 @@ for auto in autok:
 atlag_eletkor = ossz_eletkor / autok_szama
 print(f"Az autók átlagéletkora: {atlag_eletkor} év")
 
-# Legöregebb autó
-legoregebb = autok[0]
+# Legöregebb autó:  C version
+gyartasi_evek = [auto.gyartasi_ev for auto in autok]
 for auto in autok:
-    if auto.gyartasi_ev < legoregebb.gyartasi_ev:
-        legoregebb = auto
-
-legoregebb_eletkor = year - legoregebb.gyartasi_ev
-
-print(f"A legöregebb autó: {legoregebb.marka} {legoregebb.tipus} ({legoregebb.gyartasi_ev}, életkora: {legoregebb_eletkor})")
-
+    if auto.gyartasi_ev == min(gyartasi_evek):
+        eletkora = year - auto.gyartasi_ev
+        print(f"A legidősebb autó: {auto} [életkora: {eletkora} év]")
